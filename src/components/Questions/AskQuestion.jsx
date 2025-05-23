@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../lib/axios";
-import { API_URL } from "../config";
 import { useAuthStore } from "../../store/useAuthStore";
 
 
@@ -52,7 +51,7 @@ const AskQuestion = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await axiosInstance.post("/questions", formData);
+      await axiosInstance.post("/questions", formData);
       navigate(`/questions`);
     } catch (err) {
       console.error("Error asking question:", err);

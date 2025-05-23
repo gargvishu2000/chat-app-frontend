@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import { axiosInstance } from "../../lib/axios.js";
@@ -31,7 +31,7 @@ const CommentList = ({ questionId }) => {
 
   // Delete comment function
   const handleDeleteComment = async (commentId) => {
-    if (!currentUser) return;
+    if (!authUser) return;
 
     try {
       await axios.delete(`${API_URL}/api/comments/${commentId}`);
@@ -88,7 +88,7 @@ const CommentList = ({ questionId }) => {
               </div>
 
               {/* Delete Button (only for comment author) */}
-              {currentUser && comment.author._id === currentUser.id && (
+              {authUser && comment.author._id === authUser.id && (
                 <button className="btn btn-sm text-danger" onClick={() => handleDeleteComment(comment._id)}>
                   <i className="bi bi-trash"></i>
                 </button>
