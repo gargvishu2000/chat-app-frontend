@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { axiosInstance } from "../../lib/axios";
-import CommentList from "../Comments/CommentList";
+import CommentList from "../comments/CommentList";
 import { FaRegThumbsUp, FaThumbsDown, FaEdit, FaTrash, FaComments } from "react-icons/fa";
 import { useAuthStore } from "../../store/useAuthStore"
 
